@@ -1,0 +1,131 @@
+<html>
+	<head>
+		<title>Calculator</title>
+	</head>
+	<style type="text/css">
+		.one{
+			background-color: blue;
+			color: white;
+			border: solid blue 5px;
+			border-radius: 100px;
+			width: 100px;
+			height: 100px;
+			font-size: 75;
+		}
+		.one:hover{
+			background-color:white;
+			border: solid blue 5px;
+			color: blue;
+		}
+		.four:hover{
+			background-color:white;
+			border: solid blue 5px;
+			color: blue;
+		}
+		.three:hover{
+			background-color:white;
+			border: solid blue 5px;
+			color: blue;
+		}
+		.three{
+			background-color: blue;
+			color: white;
+			border: solid blue 5px;
+			border-radius: 100px;
+			width: 210px;
+			height: 100px;
+			font-size:75;
+		}
+		
+		.inputLabel{
+			background-color: #ffffff;
+			color: black;
+			border: solid blue 5px;
+			border-radius: 100px;
+			width: 550px;
+			height: 100px;
+			font-size: 75;	
+			text-align:right;
+			font-family: arial;
+		}
+		.four{
+			background-color: blue;
+			color: white;
+			border: solid blue 5px;
+			border-radius: 100px;
+			width: 330px;
+			height: 100px;
+			font-size:75px;
+		}
+		table{
+			margin: auto;
+			background-image: url(2.jpg);
+			border-radius:25px;
+		}
+	</style>
+	<body>
+		<table>
+			<tr>
+				<td colspan='5' class ='inputLabel' id='inputLabel' name='inputLabel'></td>		
+			</tr> 
+			<tr>
+				<td colspan="3">
+					<button onclick="f(this.value)" class="four" value="AC">AC</button>
+				</td>
+			    <td colspan="2"><button onclick="CE()" class="three" value="CE">CE</button></td>
+			</tr>
+			<tr>
+				<td><button onclick="f(this.value)" class="one" value="+">+</button></td><br/>
+				<td><button onclick="f(this.value)" class="one" value="1">1</button></td>
+				<td><button onclick="f(this.value)" class="one" value="2">2</button></td>
+				<td><button onclick="f(this.value)" class="one" value="3">3</button></td><td><button onclick="f(this.value)" class="one" value="(">(</button></td>
+			</tr>
+			<tr>
+				<td><button onclick="f(this.value)" class="one" value="-">-</button></td><br/>
+				<td><button onclick="f(this.value)" class="one" value="4">4</button></td>
+				<td><button onclick="f(this.value)" class="one" value="5">5</button></td>
+				<td><button onclick="f(this.value)" class="one" value="6">6</button></td>
+				<td><button onclick="f(this.value)" class="one" value=")">)</button></td>
+			</tr>
+			<tr>
+				<td><button onclick="f(this.value)" class="one" value="*">x</button></td><br/>
+				<td><button onclick="f(this.value)" class="one" value="7">7</button></td>
+				<td><button onclick="f(this.value)" class="one" value="8">8</button></td>
+				<td><button onclick="f(this.value)" class="one" value="9">9</button></td>
+				<td><button onclick="f(this.value)" class="one" value="3.141592654">π</button></td>
+			</tr>
+			<tr>
+				<td><button onclick="f(this.value)" class="one" value="/">/</button></td><br/>
+				<td><button onclick="f(this.value)" class="one" value=".">.</button></td>
+				<td><button onclick="f(this.value)" class="one" value="0">0</button></td>
+				<td colspan="2"><button onclick="f(this.value)" class="three" value="=">=</button></td>
+			</tr>
+
+		</table>
+		<script type="text/javascript">
+			var inputLabel = document.getElementById('inputLabel');
+			function f(val) {
+				var pushed = val;
+				if (pushed == '=') {
+					inputLabel.innerHTML = eval(inputLabel.innerHTML);
+				}
+				else if (pushed == 'AC'){
+					inputLabel.innerHTML ='';
+				}
+				else{
+					if (inputLabel.innerHTML == '0') {
+						inputLabel.innerHTML == 'pushed';
+					}
+					else{
+						inputLabel.innerHTML += pushed;
+					}
+				}
+			}
+			function CE(){
+				var inputVal = document.getElementById('inputLabel').innerHTML;
+				var sliceVal = inputVal.substring(0, inputVal.length - 1);
+				document.getElementById('inputLabel').innerHTML = sliceVal;
+			}
+		</script>
+	</body>
+</html>
